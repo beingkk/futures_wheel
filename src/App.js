@@ -44,6 +44,16 @@ const fetchData = () => {
   ]);
 };
 
+const fetchOpenAIResponse = (text) => {
+  return fetch('/api/query', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ text }),
+  }).then((response) => response.json());
+};
+
 function App() {
   const [treeData, setTreeData] = useState([]);
 
@@ -52,7 +62,9 @@ function App() {
   }, []);
 
   const handleNodeClick = (node) => {
-    console.log(`Clicked on: ${node.text}`);
+    fetchOpenAIResponse(node.text).then((response) => {
+      console.log(`OpenAI API response: ${response.result}`);
+    });
   };
 
   return (

@@ -1,0 +1,30 @@
+/* src/TreeDiagram.css */
+.tree-diagram {
+    font-family: Arial, sans-serif;
+  }
+  
+  .tree-node {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tree-node span {
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .level-0 > span {
+    font-weight: bold;
+  }
+  
+  .level-1 > span {
+    margin-left: 20px;
+  }
+  
+  .level-2 > span {
+    margin-left: 40px;
+  }
+  
+  .level-3 > span {
+    margin-left: 60px;
+  }
